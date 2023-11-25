@@ -10,7 +10,7 @@ class HomePaage extends StatefulWidget {
 }
 
 class _HomePaageState extends State<HomePaage> {
-  int selectedIndex = 0;
+  int selectedIndex = 3;
   bool onTap = false;
   @override
   Widget build(BuildContext context) {
