@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medikamente/helpers/colors_helper.dart';
 import 'package:medikamente/pages/home_page.dart';
+import 'package:medikamente/pages/main_page.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -12,21 +14,22 @@ class _IntroPageState extends State<IntroPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      
       child: Scaffold(
-        backgroundColor: Colors.white,
+        
+        backgroundColor: ColorsHelper.primaryGreen,
         body: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Column(
               children: [
                 SizedBox(
-                  width: 410,
-                  child: Image.asset('asset/top.png'),
+                  height: 50,
                 ),
                 Text(
                   "Medicine",
                   style: TextStyle(
-                      color: Colors.lightBlueAccent,
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 55),
                 ),
@@ -36,7 +39,7 @@ class _IntroPageState extends State<IntroPage> {
                 Text(
                   "Your medicine and drug",
                   style: TextStyle(
-                      color: Colors.lightBlue.shade800,
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 15),
                 ),
@@ -44,8 +47,11 @@ class _IntroPageState extends State<IntroPage> {
                   height: 30,
                 ),
                 SizedBox(
-                  width: 300,
-                  child: Image.asset('asset/welcome.png'),
+                
+                  child: Container(
+                    height: 300,
+                    child: Image.asset('asset/intro.png'),
+                  ),
                 ),
                 SizedBox(
                   height: 37,
@@ -53,7 +59,7 @@ class _IntroPageState extends State<IntroPage> {
                 Text(
                   "We will remind you ",
                   style: TextStyle(
-                      color: Colors.lightBlue.shade800,
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 17),
                 ),
@@ -63,63 +69,45 @@ class _IntroPageState extends State<IntroPage> {
                 Text(
                   "  to eat medicine ! 💊 ",
                   style: TextStyle(
-                      color: Colors.lightBlue.shade800,
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 17),
                 ),
-                SizedBox(
-                  height: 67,
-                ),
+                Spacer(),
 
                 /// get started
                 InkWell(
                   onTap: () {
-                      Navigator.of(context).push(
+                    Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
-                        builder: (context) => const HomePaage(),
+                        builder: (context) => const MainPage(),
                       ),
                     );
-                    setState(() {
-                      
-                    });
                   },
                   child: SizedBox(
-                    width: 200,
+                    width: 350,
                     height: 50,
                     child: Container(
                       child: Center(
                         child: Text(
                           "Get Sterted",
                           style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: 14,
+                            fontSize: 16,
                           ),
                         ),
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.blue,
-                        gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.topRight,
-                          colors: <Color>[
-                            Color.fromRGBO(97, 195, 235, 1),
-                            Color.fromRGBO(127, 217, 251, 50),
-                          ],
-                        ),
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(11),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.lightBlue.shade300.withOpacity(0.3),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
+
                       ),
                     ),
                   ),
-                )
+
+                ),
+                SizedBox(height: 40),
               ],
             ),
           ],

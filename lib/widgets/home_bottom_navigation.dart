@@ -25,11 +25,11 @@ class _HomeBottomNavigationState extends State<HomeBottomNavigation> {
         currentIndex: widget.selectedIndex,
         onTap: widget.onItemTapped,
         selectedItemColor: ColorsHelper.primaryGreen,
-        unselectedItemColor: Colors.grey,
+        unselectedItemColor: Colors.grey.shade700,
         items: [
           BottomNavigationBarItem(
             icon: Icon(
-              Iconsax.information
+              Iconsax.element_3
             ),
             label: '',
           ),
