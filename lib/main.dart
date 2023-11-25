@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medikamente/helpers/colors_helper.dart';
+import 'package:medikamente/helpers/theme_helper.dart';
 import 'package:medikamente/pages/home_page.dart';
 import 'package:medikamente/pages/intro_page.dart';
 
@@ -8,6 +10,7 @@ void main(List<String> args) {
      MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomePaage(),
+      theme: ThemeHelper.lightTheme,
      ),
    );
 }

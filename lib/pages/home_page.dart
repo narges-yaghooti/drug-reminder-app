@@ -1,6 +1,9 @@
-
+// ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:medikamente/helpers/colors_helper.dart';
+import 'package:medikamente/widgets/home_bottom_navigation.dart';
 
 class HomePaage extends StatefulWidget {
   const HomePaage({super.key});
@@ -10,52 +13,101 @@ class HomePaage extends StatefulWidget {
 }
 
 class _HomePaageState extends State<HomePaage> {
-  int selectedIndex = 3;
-  bool onTap = false;
+  int selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: SizedBox(
-        height: 70,
-        child: BottomNavigationBar(
-          items: [
-            BottomNavigationBarItem(
-              
-              icon: Icon(
-                Icons.add,
-              
+    return SafeArea(
+      child: Scaffold(
+        bottomNavigationBar: HomeBottomNavigation(
+            onItemTapped: _onItemTapped, selectedIndex: selectedIndex),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 22),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 4),
+                decoration: BoxDecoration(
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.circular(12)),
+                child: TextField(
+                  cursorColor: ColorsHelper.primaryGreen,
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    fillColor: Colors.grey.shade100,
+                    hintText: "Search",
+                    hintStyle: TextStyle(fontSize: 13, color: Colors.grey),
+                    prefixIcon: Icon(
+                      Iconsax.search_normal,
+                      size: 22,
+                    ),
+                  ),
+                ),
               ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.timer,
+              SizedBox(height: 28),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    "Hello,",
+                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.w800),
+                  ),
+                  SizedBox(width: 4),
+                  Text(
+                    "Narges",
+                    style: TextStyle(fontSize: 22),
+                  ),
+                ],
               ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.medical_services,
-              ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.settings,
-              ),
-              label: '',
-            ),
-          ],
+              SizedBox(height: 20),
+              Container(
+                padding: EdgeInsets.fromLTRB(24, 10, 10, 10),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: Color.fromRGBO(103, 226, 160, 1),
+                    borderRadius: BorderRadius.circular(28)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Your plan for today",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          "1 of 4 completed",
+                          style: TextStyle(
+                            color: Colors.red.shade900,
+                          ),
+                        )
+                      ],
+                    ),
+                    Image.asset(
+                      "asset/symbol.png",
+                      height: 150,
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
   }
 
-  void _onItemTapped(int index, bool onTap) {
+  void _onItemTapped(int index) {
     setState(() {
       selectedIndex = index;
-      !onTap;
     });
-    print('TAP');
   }
 }
